@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaMusic, FaBook, FaArrowRight} from "react-icons/fa";
+import { FaMusic, FaBook, FaArrowRight, FaFire } from "react-icons/fa";
 
 export default function SideBar() {
   
@@ -27,11 +27,8 @@ export default function SideBar() {
       </div>
       <div className="p-4">
         <SideButton title="Library" to="/library" icon={FaBook} />
-        <SideButton
-          title="signOut"
-          to="/signOut"
-          icon={FaArrowRight}
-        />
+        <SideButton title="PlayPage" to="/playpage" icon={FaFire} />
+        <SideButton title="SignOut" to="/signOut" icon={FaArrowRight} />
       </div>
     </div>
   );

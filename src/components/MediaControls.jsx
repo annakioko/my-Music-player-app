@@ -1,47 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { FaPlay, FaPause, FaVolumeUp, FaVolumeDown, FaStepForward, FaStepBackward, } from "react-icons/fa";
 
-export default function Playlist() {
-  const [isPlaylistVisible, setIsPlaylistVisible] = useState(true);
-  const [playlist, setPlaylist] = useState([]);
-
-  // Function to toggle playlist visibility
-  const togglePlaylistVisibility = () => {
-    setIsPlaylistVisible(!isPlaylistVisible);
-  };
-
-  // Fetch playlist data from API
-  useEffect(() => {
-    // Mock API endpoint
-    const apiUrl = "https://api.example.com/playlist";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setPlaylist(data))
-      .catch((error) => console.error("Error fetching playlist:", error));
-  }, []);
-
+export default function MediaControl() {
   return (
-    <div className="mt-4">
-      <button
-        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none"
-        onClick={togglePlaylistVisibility}
-      >
-        {isPlaylistVisible ? "Hide Playlist" : "Show Playlist"}
-      </button>
-      {isPlaylistVisible && (
-        <div className="mt-2">
-          <h2 className="text-lg font-semibold">Playlist</h2>
-          <ul className="list-disc ml-4">
-            {playlist.map((song) => (
-              <li key={song.id} className="flex items-center">
-                <span className="mr-2">{song.id}.</span>
-                <span className="mr-2">{song.title}</span>
-                <span>{song.duration}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+    <div className="flex flex-wrap justify-center items-center bg-gray-200 p-4 rounded-lg">
+      <div className="flex items-center justify-center mb-2 sm:mb-0">
+        <button className="text-3xl text-gray-600 focus:outline-none">
+          <FaStepBackward />
+        </button>
+        <button className="text-3xl text-gray-600 focus:outline-none">
+          <FaPlay />
+        </button>
+        <button className="text-3xl text-gray-600 focus:outline-none">
+          <FaPause />
+        </button>
+        <button className="text-3xl text-gray-600 focus:outline-none">
+          <FaStepForward />
+        </button>
+      </div>
+      <div className="flex items-center justify-center">
+        <button className="text-3xl text-gray-600 focus:outline-none">
+          <FaVolumeDown />
+        </button>
+        <button className="text-3xl text-gray-600 focus:outline-none">
+          <FaVolumeUp />
+        </button>
+      </div>
     </div>
   );
 }

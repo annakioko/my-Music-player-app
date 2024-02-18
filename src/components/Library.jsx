@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SearchBar from "./SearchBar";
 import SongCard from "./SongCard";
 
 export default function Library() {
-  const [songs, setSongs] = useState([]);
-
-  // Fetch data from API
-  useEffect(() => {
-    fetch("https://api.example.com/songs")
-      .then((response) => response.json())
-      .then((data) => setSongs(data))
-      .catch((error) => console.error("Error fetching songs:", error));
-  }, []);
+  const songIds = Array.from({ length: 16 }, (_, index) => index + 1);
 
   return (
     <div className="flex w-3/4">
@@ -21,14 +13,14 @@ export default function Library() {
       >
         <SearchBar />
         <div className="flex flex-wrap justify-between mt-4 mb-4 ">
-          {songs.map((song) => (
+          {songIds.map((id) => (
             <SongCard
-              key={song.id}
+              key={id}
               song={{
-                id: song.id,
-                title: song.title,
-                artist: song.artist,
-                poster: song.poster,
+                id,
+                title: `Song ${id}`,
+                artist: `Artist ${id}`,
+                poster: `poster${id}.jpg`,
               }}
             />
           ))}

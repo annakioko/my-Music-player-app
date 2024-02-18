@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export default function AlbumCover() {
-  const [albumData, setAlbumData] = useState(null);
-
-  // Fetch album data from API
-  useEffect(() => {
-    // Mock API endpoint
-    const apiUrl = "https://api.example.com/albums";
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setAlbumData(data))
-      .catch((error) => console.error("Error fetching album data:", error));
-  }, []);
 
   return (
     <div className="mt-4">

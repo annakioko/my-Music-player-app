@@ -5,13 +5,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideBar from "./components/SideBar"
 
 export default function App () {
-   return (
+  return (
     <Router>
-       <div className="flex h-screen w-screen bg-gray-800 rounded-1xl">
-         <SideBar/>
+      <LogIn />
+      <div className="flex h-screen w-screen bg-gray-800 rounded-1xl">
+        {!LogIn && <SideBar />}
         <Routes>
           <Route path="/library" element={<Library />} />
-          <Route path="/login" element={<LogIn/>} />
+          <Route path="/login" element={<LogIn />} />
         </Routes>
       </div>
     </Router>
