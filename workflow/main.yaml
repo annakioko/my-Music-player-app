@@ -1,0 +1,29 @@
+name: Github deployment
+on:
+  push:
+    branches: 
+           main
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout
+      - name: Set up Node
+        uses: actions/setup
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact
+        with:
+          path: './'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages

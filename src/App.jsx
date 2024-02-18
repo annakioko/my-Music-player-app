@@ -3,18 +3,17 @@ import LogIn from "./components/LogIn";
 import Library from "./components/Library";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideBar from "./components/SideBar"
+import PlayPage from "./components/PlayPage"
 
-export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+export default function App () {
   return (
     <Router>
-      <LogIn />
       <div className="flex h-screen w-screen bg-gray-800 rounded-1xl">
-        {!LogIn && <SideBar />}
+        <SideBar />
         <Routes>
           <Route path="/library" element={<Library />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/playpage" element={<PlayPage />} />
         </Routes>
       </div>
     </Router>

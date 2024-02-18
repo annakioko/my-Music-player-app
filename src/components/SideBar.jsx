@@ -28,7 +28,7 @@ export default function SideBar() {
       <div className="p-4">
         <SideButton title="Library" to="/library" icon={FaBook} />
         <SideButton title="PlayPage" to="/playpage" icon={FaFire} />
-        <SideButton title="SignOut" to="/signOut" icon={FaArrowRight} />
+        <SideButton title="login" to="/LogIn" icon={FaArrowRight} />
       </div>
     </div>
   );

@@ -5,16 +5,16 @@ export default function MediaControl() {
   return (
     <div className="flex flex-wrap justify-center items-center bg-gray-200 p-4 rounded-lg">
       <div className="flex items-center justify-center mb-2 sm:mb-0">
-        <button className="text-3xl text-gray-600 focus:outline-none">
+        <button className="text-3xl text-gray-400 focus:outline-none">
           <FaStepBackward />
         </button>
-        <button className="text-3xl text-gray-600 focus:outline-none">
+        <button className="text-3xl text-gray-400 focus:outline-none">
           <FaPlay />
         </button>
-        <button className="text-3xl text-gray-600 focus:outline-none">
+        <button className="text-3xl text-gray-400 focus:outline-none">
           <FaPause />
         </button>
-        <button className="text-3xl text-gray-600 focus:outline-none">
+        <button className="text-3xl text-gray-400 focus:outline-none">
           <FaStepForward />
         </button>
       </div>

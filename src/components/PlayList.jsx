@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
 export default function Playlist() {
   const [isPlaylistVisible, setIsPlaylistVisible] = useState(true);
-  const [playlist, setPlaylist] = useState([]);
+
 
   // Function to toggle playlist visibility
   const togglePlaylistVisibility = () => {
     setIsPlaylistVisible(!isPlaylistVisible);
   };
 
-  // Fetch playlist data from API
-  useEffect(() => {
-    // Mock API endpoint
-    const apiUrl = "https://api.example.com/playlist";
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => setPlaylist(data))
-      .catch((error) => console.error("Error fetching playlist:", error));
-  }, []);
 
   return (
     <div className="mt-4">
