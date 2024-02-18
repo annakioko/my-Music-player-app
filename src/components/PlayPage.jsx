@@ -1,6 +1,5 @@
 import React from "react";
 import PlayList from "./PlayList";
-import AlbumCover from "./AlbumCover";
 import MediaControls from "./MediaControls";
 
 const PlayPage = () => {
@@ -10,11 +9,6 @@ const PlayPage = () => {
     title: `Song ${index + 1}`,
     duration: "3:30", // Example duration
   }));
-
-  // Mock data for album cover
-  const albumCover = "album-cover.jpg";
-  const songTitle = "Song Title";
-  const artistName = "Artist Name";
 
   return (
     <div className="flex flex-col h-screen">
