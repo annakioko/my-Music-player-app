@@ -1,9 +1,10 @@
 import React from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { database } from "./FirebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn(/*{ onLogIn }*/) {
-
+  const history = useNavigate();
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -12,6 +13,7 @@ export default function LogIn(/*{ onLogIn }*/) {
 
     createUserWithEmailAndPassword(database, email, password).then(data => {
       console.log(data, "authData")
+      history ("/library")
     })
 
     

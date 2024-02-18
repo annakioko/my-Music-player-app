@@ -4,7 +4,9 @@ import Library from "./components/Library";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideBar from "./components/SideBar"
 
-export default function App () {
+export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <Router>
       <LogIn />
