@@ -8,6 +8,7 @@ import Contacts from "./components/Contacts";
 
 export default function App () {
   return (
+
     <Router>
       <div className="flex h-screen w-screen bg-gray-800 rounded-1xl">
         <SideBar />
