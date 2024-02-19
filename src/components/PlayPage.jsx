@@ -1,6 +1,6 @@
 import React from "react";
 import PlayList from "./PlayList";
-import MediaControls from "./MediaControls";
+import MediaControls from "./AudioControls";
 
 const PlayPage = () => {
   // Mock data for the playlist

@@ -1,40 +1,39 @@
-
-name: Github deployment
+name: Deploy Groovy App to GitHub Pages
 
 on:
+  # Triggers on pushes to the main branch
   push:
-    branches: 'main'
+    branches:
+      - main
 
+  # Allows manual triggering from the Actions tab
+  workflow_dispatch:
+
+# Define permissions
 permissions:
   contents: read
   pages: write
-  id-token: write
-
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 14
-          
-      - name: Install dependencies
+          node-version: '14'
+
+      - name: Install Dependencies
         run: npm install
-      - name: Build
+
+      - name: Build App
         run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          
-          path: './'
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

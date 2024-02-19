@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import LogIn from "./components/LogIn";
-import Library from "./components/Library";
+import Play from "./components/Play";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SideBar from "./components/SideBar"
-import PlayPage from "./components/PlayPage"
+import Home from "./components/Home";
+import Contacts from "./components/Contacts";
 
 export default function App () {
   return (
@@ -11,9 +12,10 @@ export default function App () {
       <div className="flex h-screen w-screen bg-gray-800 rounded-1xl">
         <SideBar />
         <Routes>
-          <Route path="/library" element={<Library />} />
+          <Route path="/play" element={<Play />} />
           <Route path="/login" element={<LogIn />} />
-          <Route path="/playpage" element={<PlayPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </div>
     </Router>
